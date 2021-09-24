@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @na-jakobs
+- 👋 Hi, I’m @na-jakobs, this is my NetApp Iceland work account
 - 👀 I’m interested in Python!
 - 🌱 I’m currently learning Python
 - 📫 Send me a message to /dev/null

@@ -1,0 +1,44 @@
+[alias]
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	save = !git add -A && git commit -a -m 'chore: commit save point' --no-edit
+	done = !git push origin HEAD
+  	co = checkout
+  	amend = commit -a --amend
+  	fixup = commit -a --amend --no-edit
+  	ff = pull --ff-only
+	tag-verbose = tag --format='%(color:bold cyan)== %(refname:short) ==%(if)%(object)%(then)%0aTag Hash: %(objectname)%0aTag Date: %(taggerdate:iso-local)%0a  Commit: %(object) %0a%0a%(contents)%(else)%0a(lightweight tag)%0a  Commit: %(objectname)%(end)%0a'
+	vv = status -vv
+[user]
+	name = Jakob Sigurðsson
+	email = jakob.sigurdsson@netapp.com
+	signingkey = key::ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGhD0/qdGnNfZ+8QTxosPzw4dAZ1uQ3m5YN3FWelOuVFwbpjusB2JPjDXEXDocpMJcSe8h/wqKDdPtdabM2iAxDhwAU8q+GanMdDip4d2FFQkzB7npl4jHzxEoMfk6iF9b7Frl47ldbBsNZutY96WVkJbMB/fLlMvFnjq0Xz0L2dplL0Q== jakob@jakobs-mac-0
+[core]
+	excludesfile = /Users/jakob/.gitignore_global
+	excludefile = /Users/jakob/.gitignore
+	pager = less -FX
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@git.greenqloud.com:"]
+	insteadOf = https://git.greenqloud.com/
+[push]
+	default = simple
+	autoSetupRemote = true
+[pull]
+	rebase = true
+	ff = only
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[merge]
+	ff = only
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+
